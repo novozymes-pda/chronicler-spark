@@ -4,7 +4,6 @@ import xerial.sbt.Sonatype._
 lazy val headerSettings = headerLicense := Some(License.ALv2("2018-2021", "Faiaz Sanaulla"))
 
 val scala212 = "2.12.15"
-val scala211 = "2.11.12"
 
 ThisBuild / scalaVersion := scala212
 ThisBuild / organization := "com.github.fsanaulla"
@@ -55,7 +54,7 @@ lazy val core = projectMatrix
     name := "chronicler-spark-core",
     libraryDependencies += Library.chroniclerCore
   )
-  .jvmPlatform(scalaVersions = Seq(scala211, scala212))
+  .jvmPlatform(scalaVersions = Seq(scala212))
   .enablePlugins(AutomateHeaderPlugin)
 
 lazy val sparkRdd = projectMatrix
@@ -69,7 +68,7 @@ lazy val sparkRdd = projectMatrix
   )
   .dependsOn(core)
   .dependsOn(testing % "test->test")
-  .jvmPlatform(scalaVersions = Seq(scala211, scala212))
+  .jvmPlatform(scalaVersions = Seq(scala212))
   .enablePlugins(AutomateHeaderPlugin)
 
 lazy val sparkDs = projectMatrix
@@ -84,7 +83,7 @@ lazy val sparkDs = projectMatrix
   )
   .dependsOn(sparkRdd)
   .dependsOn(testing % "test->test")
-  .jvmPlatform(scalaVersions = Seq(scala211, scala212))
+  .jvmPlatform(scalaVersions = Seq(scala212))
   .enablePlugins(AutomateHeaderPlugin)
 
 lazy val sparkStreaming = projectMatrix
@@ -100,7 +99,7 @@ lazy val sparkStreaming = projectMatrix
   )
   .dependsOn(sparkRdd)
   .dependsOn(testing % "test->test")
-  .jvmPlatform(scalaVersions = Seq(scala211, scala212))
+  .jvmPlatform(scalaVersions = Seq(scala212))
   .enablePlugins(AutomateHeaderPlugin)
 
 lazy val sparkStructuredStreaming = projectMatrix
@@ -115,7 +114,7 @@ lazy val sparkStructuredStreaming = projectMatrix
   )
   .dependsOn(sparkRdd)
   .dependsOn(testing % "test->test")
-  .jvmPlatform(scalaVersions = Seq(scala211, scala212))
+  .jvmPlatform(scalaVersions = Seq(scala212))
   .enablePlugins(AutomateHeaderPlugin)
 
 lazy val testing = projectMatrix
@@ -125,7 +124,7 @@ lazy val testing = projectMatrix
     libraryDependencies ++= Library.itTesting
   )
   .settings(publish / skip := true)
-  .jvmPlatform(scalaVersions = Seq(scala211, scala212))
+  .jvmPlatform(scalaVersions = Seq(scala212))
 
 def license: Project => Project =
   _.settings(
